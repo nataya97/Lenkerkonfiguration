@@ -30,6 +30,7 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit() {
+    this.userService.save(this.user).subscribe();
     this.router.navigate(['lenkerkonfiguration']);
   }
 
