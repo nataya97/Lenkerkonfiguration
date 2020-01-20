@@ -6,6 +6,7 @@ import {LenkertypService} from "../services/lenkertyp.service";
 import {Lenkertyp} from "../modules/lenkertyp";
 import {Material} from "../modules/material";
 import {MaterialService} from "../services/material.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-griff',
@@ -38,17 +39,14 @@ export class GriffComponent implements OnInit {
     this.materialien = new Array<Material>();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+
     this.lenkertypService.findAll().subscribe(lenker =>
     lenker.forEach(entry => {
       this.lenkertypen.push(entry)
-      console.log(entry)
-
     }))
 
-
   }
-
 
   onSubmit() {
     this.materialService.findAll(this.lenkertyp).subscribe(material =>
@@ -59,22 +57,39 @@ export class GriffComponent implements OnInit {
 
     this.materialien = new Array<Material>();
 
+
+
+  }
+
+  onSelectLenker(lenkertyp: Lenkertyp) {
+    this.lenkertyp = lenkertyp;
+    this.materialService.findAll(this.lenkertyp).subscribe(material =>
+      material.forEach(entry => {
+        this.materialien.push(entry)
+      }) )
+
+    this.materialien = new Array<Material>();
+
+  }
+
+  onSelectMaterial(material: Material) {
+    this.material = material;
     this.griffService.findAll(this.material).subscribe(griffe =>
       griffe.forEach(entry => {
         this.griffe.push(entry)
-        console.log(entry, this.material)
       }))
 
     this.griffe = new Array<Griff>();
+  }
+
+  onSelectGriff(griff: Griff) {
+    this.griff = griff;
 
   }
 
-  onChange(lenkertyp: any) {
-    console.log(lenkertyp)
+  onChange(obj: any) {
+    console.log(obj)
   }
 
-  compareById(i1: Griff, i2: Griff): boolean {
-    return i1 && i2 ? i1.ID == i2.ID : i1 == i2;
-  }
 
 }
