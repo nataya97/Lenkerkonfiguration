@@ -8,6 +8,10 @@ import {Material} from "../modules/material";
 import {MaterialService} from "../services/material.service";
 import {Schaltung} from "../modules/schaltung";
 import {SchaltungService} from "../services/schaltung.service";
+import {Bestellung} from "../modules/bestellung";
+import {BestellungService} from "../services/bestellung.service";
+import {timeout} from "rxjs/operators";
+
 
 @Component({
   selector: 'app-griff',
@@ -28,7 +32,11 @@ export class GriffComponent implements OnInit {
   schaltung: Schaltung;
   schaltungen: Schaltung[];
 
+  bestellung: Bestellung;
+  bestellungen: Bestellung[];
+
   isValid: boolean;
+  statuscode: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +45,7 @@ export class GriffComponent implements OnInit {
     private materialService: MaterialService,
     private lenkertypService: LenkertypService,
     private schaltungService: SchaltungService,
+    private bestellungService: BestellungService
   ) {
     this.griff = new Griff();
     this.griffe = new Array<Griff>();
@@ -46,6 +55,8 @@ export class GriffComponent implements OnInit {
     this.materialien = new Array<Material>();
     this.schaltung  = new Schaltung();
     this.schaltungen = new Array<Schaltung>();
+    this.bestellung = new Bestellung();
+    this.bestellungen = new Array<Bestellung>();
     this.isValid = false;
   }
 
@@ -54,7 +65,6 @@ export class GriffComponent implements OnInit {
     lenker.forEach(entry => {
       this.lenkertypen.push(entry)
     }))
-
   }
 
   onSelectLenker(lenkertyp: Lenkertyp) {
@@ -87,13 +97,31 @@ export class GriffComponent implements OnInit {
     this.schaltungen = new Array<Schaltung>();
   }
 
+  onSelectGriff(griff: Griff) {
+    this.griff = griff;
+    this.isValid = true;
+  }
+
+  onSpecifySchaltung(schaltung: Schaltung) {
+    this.schaltung = schaltung;
+  }
+
   onChange(obj: any) {
     console.log(obj)
   }
 
   onSubmit() {
-    this.router.navigate(['bestellung']);
-  }
+    this.bestellung.griff = this.griff;
+    this.bestellung.lenkertyp = this.lenkertyp;
+    this.bestellung.material = this.material;
+    this.bestellung.schaltung = this.schaltung;
 
+    console.log(this.bestellung);
+
+    this.bestellungService.save(this.bestellung).subscribe();
+    setTimeout(() => {
+      this.router.navigate(['bestellung']);
+    }, 3000);
+  }
 
 }

@@ -50,8 +50,5 @@ export class BestellungComponent implements OnInit {
 
   }
 
-  onSelectOrders() {
-    
-  }
 
 }

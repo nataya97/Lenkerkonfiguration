@@ -1,4 +1,4 @@
 
 export class Griff {
-  griff: String;
+  griff: string;
 }

@@ -17,6 +17,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { BestellungComponent } from './components/bestellung/bestellung.component';
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { BestellungComponent } from './components/bestellung/bestellung.componen
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
