@@ -3,3 +3,7 @@
   color: dimgray;
 
 }
+
+mat-toolbar {
+  font-weight: lighter;
+}

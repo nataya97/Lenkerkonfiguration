@@ -1,29 +1,38 @@
 <div class="form-group">
   <form #form="ngForm">
 
-    <div>
+    <div class="mat-card-container">
+      <mat-card>Lenkertypen</mat-card>
       <ng-container *ngFor="let lenkertyp of lenkertypen">
         <button mat-flat-button (click)="onSelectLenker(lenkertyp)" (change)="onChange(lenkertyp)">{{lenkertyp}}</button>
       </ng-container>
     </div>
 
-    <div>
+    <div class="mat-card-container">
+      <mat-card>Materialien</mat-card>
       <ng-container *ngFor="let material of materialien">
-        <button mat-flat-button (click)="onSelectMaterial(material)" (change)="onChange(material)">{{material}}</button>
+        <button mat-flat-button (click)="onSelectMaterial(material)" (click)="onSelectSchaltung(lenkertyp)" (change)="onChange(material)">{{material}}</button>
       </ng-container>
     </div>
 
-    <div>
+    <div class="mat-card-container">
+      <mat-card>Schaltungen</mat-card>
       <ng-container *ngFor="let schaltung of schaltungen">
-        <button mat-flat-button (click)="onSelectSchaltung(lenkertyp)" (change)="onChange(schaltung)">{{schaltung}}</button>
+        <button mat-flat-button (click)="onSelectSchaltung(lenkertyp)" (change)="onChange(schaltung)" >{{schaltung}}</button>
       </ng-container>
     </div>
 
-    <div>
+    <div class="mat-card-container">
+      <mat-card>Griffe</mat-card>
       <ng-container *ngFor="let griff of griffe">
         <button mat-flat-button (click)="onSelectGriff(griff)" (change)="onChange(griff)">{{griff}}</button>
       </ng-container>
   </div>
+
+
+    <div class="submit-button">
+      <button class="btn" mat-flat-button color="primary" type="submit" (click)="onSubmit()">Bestellung abschicken</button>
+    </div>
 
   </form>
 </div>

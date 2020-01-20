@@ -29,6 +29,8 @@ export class GriffComponent implements OnInit {
   schaltung: Schaltung;
   schaltungen: Schaltung[];
 
+  isClicked: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -45,27 +47,14 @@ export class GriffComponent implements OnInit {
     this.materialien = new Array<Material>();
     this.schaltung  = new Schaltung();
     this.schaltungen = new Array<Schaltung>();
+    this.isClicked = false;
   }
 
   ngOnInit(): void {
-
     this.lenkertypService.findAll().subscribe(lenker =>
     lenker.forEach(entry => {
       this.lenkertypen.push(entry)
     }))
-
-  }
-
-  onSubmit() {
-    this.materialService.findAll(this.lenkertyp).subscribe(material =>
-      material.forEach(entry => {
-        this.materialien.push(entry)
-        console.log(entry, this.lenkertyp, 'xxx', )
-      }) )
-
-    this.materialien = new Array<Material>();
-
-
 
   }
 
@@ -88,7 +77,6 @@ export class GriffComponent implements OnInit {
       }))
 
     this.griffe = new Array<Griff>();
-
   }
 
   onSelectGriff(griff: Griff) {
@@ -108,6 +96,10 @@ export class GriffComponent implements OnInit {
 
   onChange(obj: any) {
     console.log(obj)
+  }
+
+  onSubmit() {
+    //stuff
   }
 
 
