@@ -30,8 +30,4 @@ export class LenkertypService {
     return this.http.get<Lenkertyp[]>(this.lenkertypUrl + '/lenkertyp');
   }
 
-  public save(lenker: Lenkertyp):Observable<Lenkertyp> {
-    return this.http.put<Lenkertyp>(this.lenkertypUrl+'/add', lenker);
-  }
-
 }

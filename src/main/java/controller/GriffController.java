@@ -16,24 +16,5 @@ public class GriffController {
 
     @Autowired
     GriffService griffService;
-
-    private final AtomicLong counter = new AtomicLong();
-
-    @GetMapping("/griff")
-    public Griff griff(@RequestParam(value="griff", defaultValue = "saft") String name) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Access-Control-Allow-Origin", "*");
-        headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-        return new Griff(counter.incrementAndGet(), String.format(name));
-    }
-
-    @RequestMapping(value = "/griff", method = RequestMethod.GET)
-    public List<Griff> getAllGriffe() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Access-Control-Allow-Origin", "*");
-        headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-        return griffService.getAllGriffe(); }
-
-    @PutMapping(path = {"/add"} )
-    public Griff addNewLenker(@RequestBody Griff griff) { return this.griffService.addGriff(griff); }
+    
 }

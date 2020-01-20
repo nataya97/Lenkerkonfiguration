@@ -20,6 +20,12 @@ public class User {
     @Column(name = "USERNAME", nullable = false, length = 50)
     private String username;
 
+    @Column(name = "PASSWORD", nullable = false, length = 50)
+    private String password;
+
+    @Column(name = "LENKERKONFIGURATION", nullable = true, length = 200)
+    private String lenkerkonfiguration;
+
     //public User() { }
 
     public User(String username) { this.username = username; }
@@ -42,4 +48,19 @@ public class User {
 
     public void setUsername(String username) { this.username = username; }
 
+    public String getLenkerkonfiguration() {
+        return lenkerkonfiguration;
+    }
+
+    public void setLenkerkonfiguration(String lenkerkonfiguration) {
+        this.lenkerkonfiguration = lenkerkonfiguration;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

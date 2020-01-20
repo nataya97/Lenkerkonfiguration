@@ -16,6 +16,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { BestellungComponent } from './components/bestellung/bestellung.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     UserComponent,
     HomepageComponent,
-    GriffComponent
+    GriffComponent,
+    BestellungComponent
   ],
   imports: [
     BrowserModule,

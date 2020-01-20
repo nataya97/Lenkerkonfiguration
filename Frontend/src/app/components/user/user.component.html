@@ -1,5 +1,56 @@
-<div>
-  <div>
+<div class="userForm">
 
+  <h1>Benutzerdaten eingeben</h1>
+
+  <mat-card class="user-card">
+    <mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Neuen User erstellen</mat-card-title>
+      </mat-card-header>
+  <div>
+    <mat-form-field>
+      <label>Vorname</label>
+      <input matInput type="text" class="form-control" required
+             id="firstname"
+             [(ngModel)]="user.firstname"
+             name="firstname">
+    </mat-form-field>
   </div>
+
+  <div>
+    <mat-form-field>
+      <label>Nachname</label>
+      <input matInput type="text" class="form-control" required
+             id="lastname"
+             [(ngModel)]="user.lastname"
+             name="lastname">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field color="primary">
+      <label>Username</label>
+      <input matInput type="text" class="form-control" required
+             id="username"
+             [(ngModel)]="user.username"
+             name="username">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <label>Passwort</label>
+      <input matInput type="text" class="form-control" required
+             id="password"
+             [(ngModel)]="user.password"
+             name="password">
+    </mat-form-field>
+  </div>
+
+      <mat-card-content align="end">
+        <button mat-flat-button type="submit" class="mat-flat-button" color="primary" (click)="onSubmit()">Bestätigen</button>
+      </mat-card-content>
+
+    </mat-card-content>
+  </mat-card>
 </div>

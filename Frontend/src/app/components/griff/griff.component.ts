@@ -6,7 +6,6 @@ import {LenkertypService} from "../services/lenkertyp.service";
 import {Lenkertyp} from "../modules/lenkertyp";
 import {Material} from "../modules/material";
 import {MaterialService} from "../services/material.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {Schaltung} from "../modules/schaltung";
 import {SchaltungService} from "../services/schaltung.service";
 
@@ -29,7 +28,7 @@ export class GriffComponent implements OnInit {
   schaltung: Schaltung;
   schaltungen: Schaltung[];
 
-  isClicked: boolean;
+  isValid: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,7 +46,7 @@ export class GriffComponent implements OnInit {
     this.materialien = new Array<Material>();
     this.schaltung  = new Schaltung();
     this.schaltungen = new Array<Schaltung>();
-    this.isClicked = false;
+    this.isValid = false;
   }
 
   ngOnInit(): void {
@@ -66,7 +65,6 @@ export class GriffComponent implements OnInit {
       }) )
 
     this.materialien = new Array<Material>();
-
   }
 
   onSelectMaterial(material: Material) {
@@ -77,11 +75,6 @@ export class GriffComponent implements OnInit {
       }))
 
     this.griffe = new Array<Griff>();
-  }
-
-  onSelectGriff(griff: Griff) {
-    //enable Bestellung abschicken Button.
-
   }
 
   onSelectSchaltung(lenkertyp: Lenkertyp) {
@@ -99,7 +92,7 @@ export class GriffComponent implements OnInit {
   }
 
   onSubmit() {
-    //stuff
+    this.router.navigate(['bestellung']);
   }
 
 

@@ -25,10 +25,9 @@
     <div class="mat-card-container">
       <mat-card>Griffe</mat-card>
       <ng-container *ngFor="let griff of griffe">
-        <button mat-flat-button (click)="onSelectGriff(griff)" (change)="onChange(griff)">{{griff}}</button>
+        <button mat-flat-button (change)="onChange(griff)">{{griff}}</button>
       </ng-container>
   </div>
-
 
     <div class="submit-button">
       <button class="btn" mat-flat-button color="primary" type="submit" (click)="onSubmit()">Bestellung abschicken</button>

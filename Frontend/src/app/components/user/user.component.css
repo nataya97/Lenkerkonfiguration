@@ -1,0 +1,45 @@
+h1 {
+  font-weight: lighter;
+  position: relative;
+  left: 37%;
+}
+
+mat-placeholder {
+  background-color: black;
+}
+
+mat-card {
+  width: 30%;
+  position: relative;
+  left: 35%;
+}
+
+mat-form-field {
+  position: relative;
+  left: 25%;
+}
+
+mat-card-title {
+  font-weight: lighter;
+  position: relative;
+  left: 40%;
+}
+
+button {
+  font-weight: lighter;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: deeppink !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: deeppink !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: deeppink !important;;
+}

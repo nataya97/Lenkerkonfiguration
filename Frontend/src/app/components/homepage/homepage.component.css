@@ -1,18 +1,29 @@
+h1 {
+  width: 50%;
+  position: relative;
+  left: 30%;
+}
+
 mat-card {
   width: 50%;
   position: relative;
   margin-top: 50px;
-  bottom: 50%;
+  top: 50px;
   left: 25%;
+}
+
+mat-card-title {
+  font-weight: lighter;
 }
 
 mat-form-field {
   width: 100%;
   position: relative;
-  left: 10%;
+  left: 33%;
 }
 
 .mat-flat-button {
   position: relative;
   margin: 10px;
+  font-weight: lighter;
 }

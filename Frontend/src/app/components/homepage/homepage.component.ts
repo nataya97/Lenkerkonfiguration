@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../modules/user";
 
 @Component({
   selector: 'app-homepage',
@@ -8,16 +9,25 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class HomepageComponent implements OnInit {
 
+  user: User;
+  isValid: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) {
+    this.user = new User();
+  }
 
   ngOnInit() {
   }
 
   onLogin() {
-    this.router.navigate(['griffe']);
+    this.router.navigate(['lenkerkonfiguration']);
+  }
+
+  onCreateNewAccount() {
+    this.router.navigate(['newUser']);
   }
 
 }

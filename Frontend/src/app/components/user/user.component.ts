@@ -29,4 +29,8 @@ export class UserComponent implements OnInit {
    }))
   }
 
+  onSubmit() {
+    this.router.navigate(['lenkerkonfiguration']);
+  }
+
 }
