@@ -7,6 +7,8 @@ import {Lenkertyp} from "../modules/lenkertyp";
 import {Material} from "../modules/material";
 import {MaterialService} from "../services/material.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Schaltung} from "../modules/schaltung";
+import {SchaltungService} from "../services/schaltung.service";
 
 @Component({
   selector: 'app-griff',
@@ -24,12 +26,16 @@ export class GriffComponent implements OnInit {
   lenkertyp: Lenkertyp;
   lenkertypen: Lenkertyp[];
 
+  schaltung: Schaltung;
+  schaltungen: Schaltung[];
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private griffService: GriffService,
     private materialService: MaterialService,
     private lenkertypService: LenkertypService,
+    private schaltungService: SchaltungService,
   ) {
     this.griff = new Griff();
     this.griffe = new Array<Griff>();
@@ -37,6 +43,8 @@ export class GriffComponent implements OnInit {
     this.lenkertypen = new Array<Lenkertyp>();
     this.material = new Material();
     this.materialien = new Array<Material>();
+    this.schaltung  = new Schaltung();
+    this.schaltungen = new Array<Schaltung>();
   }
 
   ngOnInit(): void {
@@ -80,11 +88,22 @@ export class GriffComponent implements OnInit {
       }))
 
     this.griffe = new Array<Griff>();
+
   }
 
   onSelectGriff(griff: Griff) {
-    this.griff = griff;
+    //enable Bestellung abschicken Button.
 
+  }
+
+  onSelectSchaltung(lenkertyp: Lenkertyp) {
+    this.lenkertyp = lenkertyp;
+    this.schaltungService.findAll(this.lenkertyp).subscribe(schaltungen =>
+    schaltungen.forEach(entry => {
+      this.schaltungen.push(entry)
+    }))
+
+    this.schaltungen = new Array<Schaltung>();
   }
 
   onChange(obj: any) {

@@ -14,8 +14,8 @@
     </div>
 
     <div>
-      <ng-container>
-        <!-- <button mat-flat-button (click)="onSelectSchaltung(schaltung)" (change)="onChange(schaltung)">{{schaltung}}</button> -->
+      <ng-container *ngFor="let schaltung of schaltungen">
+        <button mat-flat-button (click)="onSelectSchaltung(lenkertyp)" (change)="onChange(schaltung)">{{schaltung}}</button>
       </ng-container>
     </div>
 
