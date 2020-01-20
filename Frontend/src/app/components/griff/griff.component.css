@@ -1,0 +1,11 @@
+::ng-deep .mat-select-value {
+  color: black!important;
+}
+
+label {
+  margin: 15px;
+}
+
+mat-form-field {
+  margin: 5px;
+}

@@ -39,33 +39,38 @@ export class GriffComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.griffService.findAll().subscribe(griffe =>
-    griffe.forEach(entry => {
-      this.griffe.push(entry)
-      console.log(entry)
-    }))
-
-
-
     this.lenkertypService.findAll().subscribe(lenker =>
     lenker.forEach(entry => {
       this.lenkertypen.push(entry)
       console.log(entry)
 
-      this.materialService.findAll(entry).subscribe(material =>
-        material.forEach(entry => {
-          this.materialien.push(entry)
-          console.log(entry)
-        }) )
-
     }))
-
 
 
   }
 
-  onSubmit() {
 
+  onSubmit() {
+    this.materialService.findAll(this.lenkertyp).subscribe(material =>
+      material.forEach(entry => {
+        this.materialien.push(entry)
+        console.log(entry, this.lenkertyp, 'xxx', )
+      }) )
+
+    this.materialien = new Array<Material>();
+
+    this.griffService.findAll(this.material).subscribe(griffe =>
+      griffe.forEach(entry => {
+        this.griffe.push(entry)
+        console.log(entry, this.material)
+      }))
+
+    this.griffe = new Array<Griff>();
+
+  }
+
+  onChange(lenkertyp: any) {
+    console.log(lenkertyp)
   }
 
   compareById(i1: Griff, i2: Griff): boolean {

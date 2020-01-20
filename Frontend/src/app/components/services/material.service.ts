@@ -24,7 +24,7 @@ export class MaterialService {
   private materialUrl : string;
 
   constructor(private http: HttpClient) {
-    this.materialUrl='https://www.maripavi.at/produkt';
+    this.materialUrl='https://www.maripavi.at/produkt'; //?
   }
 
   public findAll(lenkertyp: Lenkertyp): Observable<Material[]> {

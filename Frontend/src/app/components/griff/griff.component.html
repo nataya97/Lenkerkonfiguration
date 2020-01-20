@@ -2,7 +2,7 @@
 
   <mat-form-field color="primary">
     <label>Lenkertypen</label>
-    <mat-select [(value)]="lenkertyp" [compareWith]="compareById">
+    <mat-select [(ngModel)]="lenkertyp.lenkertyp" [compareWith]="compareById" (change)="onChange(lenkertyp)">
       <mat-option *ngFor="let lenkertyp of lenkertypen" [value]="lenkertyp">
         {{lenkertyp}}
       </mat-option>
@@ -11,14 +11,14 @@
 
   <mat-form-field color="primary">
     <label>Material</label>
-    <mat-select [(value)]="material" [compareWith]="compareById">
+    <mat-select [(ngModel)]="material" [compareWith]="compareById" (change)="onChange(material)">
       <mat-option *ngFor="let material of materialien" [value]="material">
         {{material}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field color="primary">
+  <mat-form-field>
     <label>Griffe</label>
     <mat-select [(value)]="griff.griff" [compareWith]="compareById">
       <mat-option *ngFor="let griff of griffe" [value]="griff">
@@ -27,7 +27,16 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-flat-button color="primary">Weiter</button>
+  <mat-form-field color="primary">
+    <label>Schaltung</label>
+    <mat-select>
+      <mat-option>
+        .
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="onSubmit()">Weiter</button>
 </div>
 
 
