@@ -1,0 +1,16 @@
+{
+  "name": "lenkerkonfiguration",
+  "version": "1.0.0",
+  "description": "lenkerkonfiguration",
+  "main": "index.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "author": "nataya97",
+  "license": "ISC"
+}

@@ -1,0 +1,34 @@
+<div class="form-group">
+
+  <mat-form-field color="primary">
+    <label>Lenkertypen</label>
+    <mat-select [(value)]="lenkertyp" [compareWith]="compareById">
+      <mat-option *ngFor="let lenkertyp of lenkertypen" [value]="lenkertyp">
+        {{lenkertyp}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field color="primary">
+    <label>Material</label>
+    <mat-select [(value)]="material" [compareWith]="compareById">
+      <mat-option *ngFor="let material of materialien" [value]="material">
+        {{material}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field color="primary">
+    <label>Griffe</label>
+    <mat-select [(value)]="griff.griff" [compareWith]="compareById">
+      <mat-option *ngFor="let griff of griffe" [value]="griff">
+        {{griff}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary">Weiter</button>
+</div>
+
+
+
